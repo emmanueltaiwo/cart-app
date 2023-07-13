@@ -36,7 +36,8 @@ const CartItem = ({
       </div>
 
       <div className="w-full lg:w-[25%] flex flex-col gap-5 items-center justify-center lg:mr-5 my-auto">
-        <div className="flex gap-3">
+        {/* Working on add more items to cart feature  */}
+        {/* <div className="flex gap-3">
           <button
             onClick={() => ACTIONS.DECREEMENT_NUMBER_OF_GOOD}
             className="bg-orange-500 w-fit px-2 py-1 h-fit rounded-smd text-white"
@@ -54,7 +55,7 @@ const CartItem = ({
           >
             +
           </button>
-        </div>
+        </div> */}
         <button
           className="bg-orange-500 w-fit py-2 px-5 text-sm text-white font-medium"
           onClick={() => {
