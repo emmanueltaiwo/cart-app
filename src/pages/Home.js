@@ -78,25 +78,37 @@ const Home = ({
     }
   };
 
-  return (
-    <div>
-      <Header cartCounter={cartCounter} />
-      <FilterProducts
-        handleProductsFilter={handleProductsFilter}
-        selctValueChange={selctValueChange}
-      />
-      {isLoading ? (
+  const handleProductDisplay = () => {
+    if (isLoading) {
+      return (
         <h1 className="text-center text-3xl font-medium mt-10">Loading...</h1>
-      ) : isProductNotFound ? (
+      );
+    } else if (isProductNotFound) {
+      return (
         <p className="text-center mt-10 text-2xl font-medium">
           {productNotFoundMessage}
         </p>
-      ) : (
+      );
+    } else {
+      return (
         <ProductFeed
           products={filteredProducts}
           addItemsToCart={addItemsToCart}
         />
-      )}
+      );
+    }
+  };
+
+  return (
+    <div>
+      <Header cartCounter={cartCounter} />
+
+      <FilterProducts
+        handleProductsFilter={handleProductsFilter}
+        selctValueChange={selctValueChange}
+      />
+
+      {handleProductDisplay()}
 
       {itemExists &&
         createPortal(
